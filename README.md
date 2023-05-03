@@ -16,7 +16,7 @@ Before using the LinkedIn Post Creation Extension, make sure to complete the fol
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/linkedin-post-creation-extension.git
+git clone https://github.com/Manish06097/linkdlenPostCreator.git
 ```
 
 
