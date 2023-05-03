@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>LinkedIn Post Form</title>
+    <link rel="stylesheet" href="a1.css" />
+  </head>
+  <style>
+    body {
+      width: 400px;
+      height: 400px;
+      overflow: auto; /* Add this line to enable scrolling if the content overflows */
+    }
+  </style>
+  <body>
+    <h1>Create a LinkedIn Post</h1>
+    <form>
+      <div class="form-group">
+        <label for="ApiKey">ApiKey</label>
+        <input type="text" id="ApiKey" name="Apikey" required>
+    </div>
+      <div class="form-group">
+        <label for="post-type">Post Type</label>
+        <select class="form-control" id="post-type" name="post-type" required>
+            <option value="">Select Post Type</option>
+            <option value="text">Text-only</option>
+            <option value="image">Image</option>
+            <option value="link">Link</option>
+            <option value="video">Video</option>
+            <option value="document">Document</option>
+            <option value="poll">Poll</option>
+            <option value="event">Event</option>
+            <option value="job">Job</option>
+            <option value="company-update">Company Update</option>
+            <option value="thought-leadership">Thought Leadership</option>
+            <option value="personal-story">Personal Story</option>
+            <option value="engagement">Engagement</option>
+            <option value="Undefined">Other</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Content-Type">Content-Type</label>
+      <select class="form-control" id="Content-Type" name="Content-Type" required>
+          
+          <option value="Professional">Professional</option>
+          <option value="Creative">Creative</option>
+          <option value="Informative">Informative</option>
+          <option value="Personal">Personal</option>
+          <option value="Undefined">Other</option>
+      </select>
+  </div>
+
+    <div class="form-group">
+        <label for="Details">Details</label>
+        <textarea class="form-control" id="Details" name="Details" required rows="5" cols="50"></textarea>
+    </div>
+
+
+    
+
+
+
+    <button type="submit" class="btn btn-primary" id = "send-button">Create Post</button>
+    
+
+    <div id="gpt-response"></div>
+    <script src="popup.js">
+
+    </script>
+</form>
+</div>
+<body>
+<html>

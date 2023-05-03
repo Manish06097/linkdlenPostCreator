@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Test</title>
+</head>
+<body>
+    <h1>ChatGPT Test</h1>
+    <input type="text" id="user-input" placeholder="Enter your message">
+    <button id="send-button">Send</button>
+    <div id="gpt-response"></div>
+
+    <script>
+        document.getElementById("send-button").addEventListener("click", async (event) => {
+            event.preventDefault();
+            const userInput = document.getElementById("user-input").value;
+            const responseContainer = document.getElementById("gpt-response");
+
+            if (userInput) {
+                responseContainer.textContent = "Generating response...";
+                const response = await fetchChatGPTResponse(userInput);
+                responseContainer.textContent = response;
+            }
+        });
+
+        async function fetchChatGPTResponse(prompt) {
+            const serverEndpoint = "http://localhost:8000/chatgpt";
+
+            const body = JSON.stringify({
+                prompt: prompt,
+            });
+
+            try {
+                const response = await fetch(serverEndpoint, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: body,
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.response;
+                } else {
+                    throw new Error("Failed to fetch response from ChatGPT API");
+                }
+            } catch (error) {
+                console.error(error);
+                return "Error: Unable to generate a response.";
+            }
+        }
+    </script>
+</body>
+</html>
